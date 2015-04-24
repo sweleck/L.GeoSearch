@@ -1,6 +1,7 @@
 /*
  * L.Control.GeoSearch - search for an address and zoom to its location
  * https://github.com/smeijer/leaflet.control.geosearch
+ * 
  */
 
 L.GeoSearch = {};
@@ -15,13 +16,13 @@ L.GeoSearch.Result = function (x, y, label) {
 L.Control.GeoSearch = L.Control.extend({
     options: {
         position: 'topcenter',
-        showMarker: false
+        showMarker: true
     },
 
     _config: {
         country: '',
-        searchLabel: 'Geben Sie einen Standort ein',
-        notFoundMessage: 'Die Adresse konnte leider nicht gefunden werden',
+        searchLabel: 'search for address ...',
+        notFoundMessage: 'Sorry, that address could not be found.',
         messageHideDelay: 3000,
         zoomLevel: 18
     },
