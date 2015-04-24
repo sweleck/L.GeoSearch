@@ -20,8 +20,8 @@ L.Control.GeoSearch = L.Control.extend({
 
     _config: {
         country: '',
-        searchLabel: 'search for address ...',
-        notFoundMessage: 'Sorry, that address could not be found.',
+        searchLabel: 'Geben Sie einen Standort ein',
+        notFoundMessage: 'Die Adresse konnte leider nicht gefunden werden',
         messageHideDelay: 3000,
         zoomLevel: 18
     },
