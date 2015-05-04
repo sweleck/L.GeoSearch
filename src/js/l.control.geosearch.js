@@ -1,4 +1,4 @@
-/*
+777/*
  * L.Control.GeoSearch - search for an address and zoom to its location
  * https://github.com/smeijer/leaflet.control.geosearch
  * 
@@ -199,15 +199,20 @@ L.Control.GeoSearch = L.Control.extend({
     },
 
     _onKeyUp: function (e) {
-        var esc = 27,
-            enter = 13,
-            queryBox = document.getElementById('leaflet-control-geosearch-qry');
+        var enter = 13;
 
-        if (e.keyCode === esc) { // escape key detection is unreliable
-            queryBox.value = '';
-            this._map._container.focus();
-        } else if (e.keyCode === enter) {
-            this.geosearch(queryBox.value);
+        if (e.keyCode === enter) {
+            e.preventDefault();
+            this.geosearch(this._getSearchQuery());
         }
+    },
+
+    _getSearchQuery: function () {
+        var queryBoxValue = document.getElementById('leaflet-control-geosearch-qry').value;
+        if (!this._config.country) {
+            return queryBoxValue;
+        }
+
+        return this._config.country.concat(', ', queryBoxValue);
     }
 });
